@@ -20,15 +20,9 @@
 
     <div class="container">
         <h1>Tes Kecermatan Angka Hilang</h1>
-        
         <div class="content" style="display: none;">
-            <div id="start">
-                <h2>Apakah kamu sudah siap?</h2>
-                <button onclick="startTest()">Siap</button>
-            </div>
-
+            <button onclick="startTest()">Mulai Tes</button> <!-- Tombol Start -->
             <div id="timer" style="display: none;">10</div>
-
             <div id="reference" style="display: none;">
                 <table>
                     <tbody id="referenceBody">
@@ -36,13 +30,11 @@
                     </tbody>
                 </table>
             </div>
-
             <div id="question" style="display: none;">
                 <div id="questionNumbers"></div>
                 <div id="options"></div>
             </div>
         </div>
-
         <div id="history" style="display: none;">
             <h2>Riwayat Tes</h2>
             <table id="historyTable">
