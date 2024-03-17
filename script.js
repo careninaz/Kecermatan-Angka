@@ -116,9 +116,10 @@ function calculateScore() {
 }
 
 function startTest() {
-    document.getElementById("start").style.display = "none";
+    document.querySelector(".content").style.display = "block"; // Tampilkan konten
     document.getElementById("timer").style.display = "block";
     document.getElementById("reference").style.display = "block";
+    document.getElementById("history").style.display = "none"; // Sembunyikan riwayat
     startTimer();
     generateReference();
 }
@@ -144,7 +145,8 @@ function showHistory() {
         historyTableBody.appendChild(row);
     });
 
-    // Tampilkan div riwayat
+    // Sembunyikan konten tes dan tampilkan riwayat
+    document.querySelector(".content").style.display = "none";
     document.getElementById("history").style.display = "block";
 }
 
@@ -152,3 +154,16 @@ function showHistory() {
 window.onload = function() {
     document.getElementById("history").style.display = "none";
 };
+
+// Dark Mode and Light Mode Toggle
+function toggleMode() {
+    var body = document.body;
+    body.classList.toggle("dark-mode");
+    body.classList.toggle("light-mode");
+}
+
+// Function to show history and hide content
+function showHistory() {
+    document.getElementById("content").style.display = "none";
+    document.getElementById("history").style.display = "block";
+}
