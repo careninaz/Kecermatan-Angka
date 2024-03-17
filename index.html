@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="light-mode" onload="loadHomePage()">
     <header class="top-navigation">
         <nav>
             <ul>
-                <li><a href="#">Beranda</a></li>
-                <li><a href="#" onclick="showHistory()">Riwayat</a></li>
-                <li><a href="#">Tentang Kami</a></li>
+                <li><a href="#" class="nav-link">Beranda</a></li>
+                <li><a href="#" class="nav-link" onclick="showHistory()">Riwayat</a></li>
+                <li><a href="#" class="nav-link" onclick="showAboutUs()">Tentang Kami</a></li>
             </ul>
         </nav>
     </header>
@@ -21,7 +21,7 @@
     <div class="container">
         <h1>Tes Kecermatan Angka Hilang</h1>
         
-        <div class="content" style="display: none;">
+        <div class="content" id="home-content">
             <div id="start">
                 <h2>Apakah kamu sudah siap?</h2>
                 <button onclick="startTest()">Siap</button>
@@ -58,8 +58,20 @@
                 </tbody>
             </table>
         </div>
+
+        <div id="about-us" style="display: none;">
+            <h2>Tentang Kami</h2>
+            <p>Company Profile Minimalist Modern</p>
+            <p>Contact Person: <a href="https://www.instagram.com/careninaz" target="_blank">@careninaz</a></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function loadHomePage() {
+            // Memuat konten beranda saat halaman dimuat
+            document.getElementById("home-content").style.display = "block";
+        }
+    </script>
 </body>
 </html>
