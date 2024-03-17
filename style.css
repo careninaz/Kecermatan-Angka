@@ -1,216 +1,19 @@
-var acuanTimeLeft = 10; // Waktu untuk melihat acuan (detik)
-var testTimeLeft = 60; // Waktu total untuk mengerjakan soal (detik)
-var questionTimeLeft = 5; // Waktu untuk menjawab satu soal (detik)
-var numbers; // Array untuk menyimpan angka acuan
-var options = ['A', 'B', 'C', 'D', 'E']; // Array untuk opsi jawaban
-var correctCount = 0;
-var wrongCount = 0;
-var timerInterval;
-var questionTimer;
-var startTime;
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
 }
 
 .container {
-    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 header {
     background-color: #333;
     color: #fff;
-    padding: 20px;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
-    margin-left: 20px;
-}
-
-nav ul li:first-child {
-    margin-left: 0;
-}
-
-button {
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: ##333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-#reference, #question, #history {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-function startTimer() {
-    timerInterval = setInterval(function() {
-        acuanTimeLeft--;
-        document.getElementById("timer").textContent = acuanTimeLeft;
-
-        if(acuanTimeLeft <= 0) {
-            clearInterval(timerInterval);
-            document.getElementById("timer").style.display = "none";
-            document.getElementById("reference").style.display = "none";
-            document.getElementById("question").style.display = "block";
-            startTestTime(); // Memulai waktu tes setelah melihat acuan
-        }
-    }, 1000);
-}
-
-function startTestTime() {
-    startTime = new Date().getTime();
-    showNextQuestion(); // Tampilkan soal pertama
-    questionTimer = setInterval(showNextQuestion, questionTimeLeft * 1000); // Tampilkan soal setiap waktu yang ditentukan
-}
-
-function generateReference() {
-    var referenceTable = document.getElementById("referenceBody");
-    referenceTable.innerHTML = ""; // Bersihkan isi sebelum mengisi kembali
-    numbers = [];
-
-    // Memilih 5 angka acak yang berbeda untuk acuan
-    while (numbers.length < 5) {
-        var randomNumber = Math.floor(Math.random() * 9) + 1;
-        if (numbers.indexOf(randomNumber) === -1) {
-            numbers.push(randomNumber);
-        }
-    }
-
-    // Menampilkan angka acak pada kolom acuan
-    var acuanRow = referenceTable.insertRow();
-    for (var i = 0; i < numbers.length; i++) {
-        var cell = acuanRow.insertCell();
-        cell.textContent = numbers[i];
-    }
-
-    // Menampilkan abjad a-e pada baris kedua kolom acuan
-    var alphabetRow = referenceTable.insertRow();
-    for (var i = 0; i < 5; i++) {
-        var cell = alphabetRow.insertCell();
-        cell.textContent = String.fromCharCode(65 + i);
-    }
-}
-
-function showNextQuestion() {
-    var currentTime = new Date().getTime();
-    var elapsedTime = (currentTime - startTime) / 1000; // Waktu yang telah berlalu dalam detik
-    if (elapsedTime >= testTimeLeft) {
-        clearInterval(questionTimer); // Hentikan interval setelah waktu berakhir
-        calculateScore();
-        return;
-    }
-
-    var questionNumbers = generateQuestion();
-    var questionNumbersHtml = "<div>";
-    for (var i = 0; i < questionNumbers.length; i++) {
-        questionNumbersHtml += questionNumbers[i] + " ";
-    }
-    questionNumbersHtml += "</div>";
-    document.getElementById("questionNumbers").innerHTML = questionNumbersHtml;
-
-    var optionsHtml = "<div class='options'>";
-    for (var i = 0; i < options.length; i++) {
-        optionsHtml += "<button onclick='checkAnswer(\"" + options[i] + "\")'>" + options[i] + "</button>";
-    }
-    optionsHtml += "</div>";
-    document.getElementById("options").innerHTML = optionsHtml;
-}
-
-function generateQuestion() {
-    var questionNumbers = [];
-    var missingIndex = Math.floor(Math.random() * numbers.length);
-    for (var i = 0; i < numbers.length; i++) {
-        if (i !== missingIndex) {
-            questionNumbers.push(numbers[i]);
-        }
-    }
-    return questionNumbers;
-}
-
-function checkAnswer(selectedOption) {
-    var missingIndex = numbers.indexOf(numbers[missingIndex]);
-    if (selectedOption === String.fromCharCode(65 + missingIndex)) {
-        correctCount++;
-        event.target.classList.add("correct");
-    } else {
-        wrongCount++;
-        event.target.classList.add("wrong");
-    }
-    event.target.disabled = true; // Menonaktifkan tombol setelah diklik
-    event.target.classList.add("disabled"); // Mengubah warna tombol menjadi abu-abu
-    clearInterval(questionTimer); // Hentikan timer setelah menjawab
-    showNextQuestion(); // Tampilkan soal berikutnya
-}
-
-function calculateScore() {
-    var scoreDiv = document.createElement("div");
-    scoreDiv.innerHTML = "<h2>Penilaian</h2><p>Benar: " + correctCount + "</p><p>Salah: " + wrongCount + "</p>";
-    document.body.appendChild(scoreDiv);
-}
-
-function startTest() {
-    document.getElementById("start").style.display = "none";
-    document.getElementById("timer").style.display = "block";
-    document.getElementById("reference").style.display = "block";
-    startTimer();
-    generateReference();
-}
-
-/*Tampilan Mobile*/
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
+    padding: 20px 0;
     text-align: center;
-    max-width: 600px;
-    width: 100%;
-    padding: 0 20px;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
 }
 
 header h1 {
@@ -229,6 +32,11 @@ nav ul li {
 
 nav ul li:first-child {
     margin-left: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
 }
 
 button {
@@ -254,13 +62,36 @@ button:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.options {
+    margin-top: 10px;
+}
+
+.options button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.options button.correct {
+    background-color: green;
+}
+
+.options button.wrong {
+    background-color: gray;
+}
+
+.options button.disabled {
+    background-color: #ccc;
+}
+
+#timer {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 @media screen and (max-width: 600px) {
     header {
         padding: 10px;
-    }
-
-    header h1 {
-        font-size: 24px;
     }
 
     nav ul li {
