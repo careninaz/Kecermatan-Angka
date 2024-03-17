@@ -13,34 +13,41 @@ var startTime;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    justify-content: center;
 }
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
+    justify-content: center;
 }
 
 header {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    justify-content: center;
 }
 
 header h1 {
     margin: 0;
+    justify-content: center;
 }
 
 nav ul {
     list-style: none;
+    justify-content: center;
 }
 
 nav ul li {
     display: inline;
     margin-left: 20px;
+    justify-content: center;
 }
 
 nav ul li:first-child {
     margin-left: 0;
+    justify-content: center;
 }
 
 button {
@@ -64,6 +71,7 @@ button:hover {
     margin: 20px 0;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
 }
 
 function startTimer() {
@@ -73,6 +81,7 @@ function startTimer() {
 
         if(acuanTimeLeft <= 0) {
             clearInterval(timerInterval);
+            justify-content: center;
             document.getElementById("timer").style.display = "none";
             document.getElementById("reference").style.display = "none";
             document.getElementById("question").style.display = "block";
@@ -82,12 +91,14 @@ function startTimer() {
 }
 
 function startTestTime() {
+    justify-content: center;
     startTime = new Date().getTime();
     showNextQuestion(); // Tampilkan soal pertama
     questionTimer = setInterval(showNextQuestion, questionTimeLeft * 1000); // Tampilkan soal setiap waktu yang ditentukan
 }
 
 function generateReference() {
+    justify-content: center;
     var referenceTable = document.getElementById("referenceBody");
     referenceTable.innerHTML = ""; // Bersihkan isi sebelum mengisi kembali
     numbers = [];
@@ -101,6 +112,7 @@ function generateReference() {
     }
 
     // Menampilkan angka acak pada kolom acuan
+    justify-content: center;
     var acuanRow = referenceTable.insertRow();
     for (var i = 0; i < numbers.length; i++) {
         var cell = acuanRow.insertCell();
