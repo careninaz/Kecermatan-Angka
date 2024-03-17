@@ -64,3 +64,13 @@ body {
 .nav-link:hover {
     text-decoration: underline;
 }
+
+hr.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+#about-us p {
+    margin: 10px 0;
+}
