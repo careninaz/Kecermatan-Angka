@@ -6,8 +6,9 @@
     <title>Tes Kecermatan Angka Hilang</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
+    <header class="top-navigation">
         <nav>
             <ul>
                 <li><a href="#">Beranda</a></li>
@@ -15,10 +16,10 @@
                 <li><a href="#">Tentang Kami</a></li>
             </ul>
         </nav>
-        <h1>Tes Kecermatan Angka Hilang</h1>
     </header>
 
     <div class="container">
+        <h1>Tes Kecermatan Angka Hilang</h1>
         <div id="start">
             <h2>Apakah kamu sudah siap?</h2>
             <button onclick="startTest()">Siap</button>
@@ -27,7 +28,7 @@
         <div id="timer" style="display: none;">10</div>
 
         <div id="reference" style="display: none;">
-            <table id="referenceTable">
+            <table>
                 <tbody id="referenceBody">
                     <!-- Kolom acuan akan diisi dengan JavaScript -->
                 </tbody>
@@ -50,7 +51,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Data riwayat tes akan diisi dengan JavaScript -->
+                    <!-- Data riwayat akan diisi dengan JavaScript -->
                 </tbody>
             </table>
         </div>
