@@ -6,8 +6,8 @@
     <title>Tes Kecermatan Angka Hilang</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="container">
-    <header class="top-navigation">
+<body>
+    <header>
         <h1>Tes Kecermatan Angka Hilang</h1>
         <nav>
             <ul>
@@ -17,41 +17,41 @@
             </ul>
         </nav>
     </header>
-    
-    <div id="start">
-        <h2>Apakah kamu sudah siap?</h2>
-        <button onclick="startTest()">Siap</button>
+
+    <div class="container">
+        <div id="start">
+            <h2>Apakah kamu sudah siap?</h2>
+            <button onclick="startTest()">Siap</button>
+        </div>
+
+        <div id="timer" style="display: none;">10</div>
+
+        <div id="reference" style="display: none; margin: auto;">
+            <table>
+                <tbody id="referenceBody">
+                    <!-- Kolom acuan akan diisi dengan JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="question" style="display: none; margin: auto;">
+            <div id="questionNumbers"></div>
+            <div id="options"></div>
+        </div>
     </div>
 
-    <div id="timer" style="display: none;">10</div>
-
-    <div id="reference" style="display: none;">
-        <h2>Acuan</h2>
-        <table>
-            <tbody id="referenceBody">
-                <!-- Kolom acuan akan diisi dengan JavaScript -->
-            </tbody>
-        </table>
-    </div>
-
-    <div id="question" style="display: none;">
-        <h2>Pertanyaan</h2>
-        <div id="questionNumbers"></div>
-        <div id="options"></div>
-    </div>
-
-    <div id="history" style="display: none;">
+    <div id="history" class="container">
         <h2>Riwayat Tes</h2>
         <table id="historyTable">
             <thead>
                 <tr>
-                    <th>Tanggal dan Waktu</th>
+                    <th>Tanggal & Waktu</th>
                     <th>Benar</th>
                     <th>Salah</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Isi tabel riwayat akan diisi dengan JavaScript -->
+                <!-- Data riwayat tes akan diisi dengan JavaScript -->
             </tbody>
         </table>
     </div>
