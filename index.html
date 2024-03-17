@@ -20,24 +20,27 @@
 
     <div class="container">
         <h1>Tes Kecermatan Angka Hilang</h1>
-        <div id="start">
-            <h2>Apakah kamu sudah siap?</h2>
-            <button onclick="startTest()">Siap</button>
-        </div>
+        
+        <div class="content" style="display: none;">
+            <div id="start">
+                <h2>Apakah kamu sudah siap?</h2>
+                <button onclick="startTest()">Siap</button>
+            </div>
 
-        <div id="timer" style="display: none;">10</div>
+            <div id="timer" style="display: none;">10</div>
 
-        <div id="reference" style="display: none;">
-            <table>
-                <tbody id="referenceBody">
-                    <!-- Kolom acuan akan diisi dengan JavaScript -->
-                </tbody>
-            </table>
-        </div>
+            <div id="reference" style="display: none;">
+                <table>
+                    <tbody id="referenceBody">
+                        <!-- Kolom acuan akan diisi dengan JavaScript -->
+                    </tbody>
+                </table>
+            </div>
 
-        <div id="question" style="display: none;">
-            <div id="questionNumbers"></div>
-            <div id="options"></div>
+            <div id="question" style="display: none;">
+                <div id="questionNumbers"></div>
+                <div id="options"></div>
+            </div>
         </div>
 
         <div id="history" style="display: none;">
