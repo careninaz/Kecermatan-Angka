@@ -122,3 +122,33 @@ function startTest() {
     startTimer();
     generateReference();
 }
+
+// Simpan riwayat tes dalam bentuk array objek
+var historyData = [
+    { dateTime: "2024-03-17 10:30:15", correct: 8, wrong: 2 },
+    { dateTime: "2024-03-16 15:45:22", correct: 9, wrong: 1 },
+    { dateTime: "2024-03-15 09:20:50", correct: 7, wrong: 3 }
+];
+
+// Fungsi untuk menampilkan riwayat tes dalam tabel
+function showHistory() {
+    var historyTableBody = document.querySelector("#historyTable tbody");
+    historyTableBody.innerHTML = ""; // Kosongkan isi tabel
+
+    // Loop melalui data riwayat dan tambahkan baris baru ke dalam tabel
+    historyData.forEach(function(data) {
+        var row = document.createElement("tr");
+        row.innerHTML = "<td>" + data.dateTime + "</td>" +
+                        "<td>" + data.correct + "</td>" +
+                        "<td>" + data.wrong + "</td>";
+        historyTableBody.appendChild(row);
+    });
+
+    // Tampilkan div riwayat
+    document.getElementById("history").style.display = "block";
+}
+
+// Fungsi untuk menyembunyikan riwayat saat halaman dimuat
+window.onload = function() {
+    document.getElementById("history").style.display = "none";
+};
