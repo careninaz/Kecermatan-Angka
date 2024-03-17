@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    color: #333; /* Warna teks default */
+    color: #333;
     margin: 0;
 }
 
@@ -30,7 +30,7 @@ body {
 .container {
     text-align: center;
     max-width: 600px;
-    margin: 0 auto; /* Memposisikan kontainer di tengah */
+    margin: 0 auto;
     padding: 20px;
 }
 
