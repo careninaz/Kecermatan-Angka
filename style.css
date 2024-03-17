@@ -1,10 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    color: #333; /* Warna teks default */
     margin: 0;
 }
 
@@ -12,6 +9,7 @@ body {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    text-align: center;
 }
 
 .top-navigation nav ul {
@@ -32,8 +30,8 @@ body {
 .container {
     text-align: center;
     max-width: 600px;
-    width: 100%;
-    padding: 0 20px;
+    margin: 0 auto; /* Memposisikan kontainer di tengah */
+    padding: 20px;
 }
 
 button {
@@ -51,31 +49,43 @@ button:hover {
     background-color: #45a049;
 }
 
-#reference, #question, #history {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+th {
+    background-color: #f2f2f2;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+        color: #fff;
+    }
+
     .top-navigation {
-        padding: 10px;
-    }
-
-    .top-navigation h1 {
-        font-size: 24px;
-    }
-
-    .top-navigation nav ul li {
-        display: block;
-        margin: 10px 0;
+        background-color: #444;
     }
 
     button {
-        font-size: 14px;
-        padding: 8px 16px;
+        background-color: #555;
+    }
+
+    table, th, td {
+        border-color: #888;
+        background-color: #444;
+        color: #fff;
+    }
+
+    th {
+        background-color: #666;
     }
 }
