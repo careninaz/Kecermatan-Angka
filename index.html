@@ -8,14 +8,14 @@
 </head>
 <body>
     <header>
-        <h1>Tes Kecermatan Angka Hilang</h1>
         <nav>
             <ul>
                 <li><a href="#">Beranda</a></li>
                 <li><a href="#" onclick="showHistory()">Riwayat</a></li>
-                <li><a href="#">Kontak Kami</a></li>
+                <li><a href="#">Tentang Kami</a></li>
             </ul>
         </nav>
+        <h1>Tes Kecermatan Angka Hilang</h1>
     </header>
 
     <div class="container">
@@ -26,34 +26,34 @@
 
         <div id="timer" style="display: none;">10</div>
 
-        <div id="reference" style="display: none; margin: auto;">
-            <table>
+        <div id="reference" style="display: none;">
+            <table id="referenceTable">
                 <tbody id="referenceBody">
                     <!-- Kolom acuan akan diisi dengan JavaScript -->
                 </tbody>
             </table>
         </div>
 
-        <div id="question" style="display: none; margin: auto;">
+        <div id="question" style="display: none;">
             <div id="questionNumbers"></div>
             <div id="options"></div>
         </div>
-    </div>
 
-    <div id="history" class="container">
-        <h2>Riwayat Tes</h2>
-        <table id="historyTable">
-            <thead>
-                <tr>
-                    <th>Tanggal & Waktu</th>
-                    <th>Benar</th>
-                    <th>Salah</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Data riwayat tes akan diisi dengan JavaScript -->
-            </tbody>
-        </table>
+        <div id="history" style="display: none;">
+            <h2>Riwayat Tes</h2>
+            <table id="historyTable">
+                <thead>
+                    <tr>
+                        <th>Tanggal & Waktu</th>
+                        <th>Benar</th>
+                        <th>Salah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data riwayat tes akan diisi dengan JavaScript -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="script.js"></script>
