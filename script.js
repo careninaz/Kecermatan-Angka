@@ -147,3 +147,12 @@ function showHistory() {
 window.onload = function() {
     document.getElementById("history").style.display = "none";
 };
+
+function startTest() {
+}
+
+function showHistory() {
+}
+
+function showAboutUs() {
+}
