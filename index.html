@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="light-mode" onload="loadHomePage()">
+<body class="light-mode">
     <header class="top-navigation">
         <nav>
             <ul>
-                <li><a href="#" class="nav-link">Beranda</a></li>
+                <li><a href="#" class="nav-link" onclick="loadHomePage()">Beranda</a></li>
                 <li><a href="#" class="nav-link" onclick="showHistory()">Riwayat</a></li>
                 <li><a href="#" class="nav-link" onclick="showAboutUs()">Tentang Kami</a></li>
             </ul>
@@ -45,32 +45,22 @@
 
         <div id="history" style="display: none;">
             <h2>Riwayat Tes</h2>
-            <table id="historyTable">
-                <thead>
-                    <tr>
-                        <th>Tanggal & Waktu</th>
-                        <th>Benar</th>
-                        <th>Salah</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Data riwayat akan diisi dengan JavaScript -->
-                </tbody>
-            </table>
+            <div id="historyTable"></div> <!-- Menggunakan div untuk riwayat tes -->
         </div>
 
         <div id="about-us" style="display: none;">
             <h2>Tentang Kami</h2>
-            <p>Contact Person</p>
-            <p>Kritik & Saran Hubungi : <a href="https://www.instagram.com/careninaz" target="_blank">@careninaz</a></p>
+            <p>Company Profile Minimalist Modern</p>
+            <p>Contact Person: <a href="https://www.instagram.com/careninaz" target="_blank">@careninaz</a></p>
         </div>
     </div>
 
     <script src="script.js"></script>
     <script>
         function loadHomePage() {
-            // Memuat konten beranda saat halaman dimuat
             document.getElementById("home-content").style.display = "block";
+            document.getElementById("history").style.display = "none";
+            document.getElementById("about-us").style.display = "none";
         }
     </script>
 </body>
