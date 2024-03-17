@@ -25,6 +25,7 @@ function startTimer() {
 }
 
 function startTestTime() {
+    console.log("Tes dimulai!");
     startTime = new Date().getTime();
     showNextQuestion();
     questionTimer = setInterval(showNextQuestion, questionTimeLeft * 1000);
