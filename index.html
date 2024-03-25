@@ -8,61 +8,38 @@
 </head>
 <body>
     <header class="top-navigation">
+        <h1>Tes Kecermatan Angka Hilang</h1>
         <nav>
             <ul>
-                <li><a href="#" class="nav-link" onclick="loadHomePage()">Beranda</a></li>
-                <li><a href="#" class="nav-link" onclick="showHistory()">Riwayat</a></li>
-                <li><a href="#" class="nav-link" onclick="showAboutUs()">Tentang Kami</a></li>
+                <li><a href="#">Pilihan Tes</a></li>
+                <li><a href="#">Riwayat</a></li>
+                <li><a href="#">Kontak Kami</a></li>
             </ul>
         </nav>
     </header>
+    
+    <div id="start">
+        <h2>Apakah kamu sudah siap?</h2>
+        <button onclick="startTest()">Siap</button>
+    </div>
 
-    <div class="container">
-        <h1>Tes Kecermatan Angka Hilang</h1>
-        
-        <div class="content" id="home-content">
-            <div id="start">
-                <h2>Pertanyaan</h2>
-                <p>Apakah kamu sudah siap?</p>
-                <button onclick="startTest()">Siap</button>
-            </div>
+    <div id="timer" style="display: none;">10</div>
 
-            <div id="timer" style="display: none;">10</div>
+    <div id="reference" style="display: none;">
+        <h2>Acuan</h2>
+        <table>
+            <tbody id="referenceBody">
+                <!-- Kolom acuan akan diisi dengan JavaScript -->
+            </tbody>
+        </table>
+    </div>
 
-            <div id="reference" style="display: none;">
-                <table>
-                    <tbody id="referenceBody">
-                        <!-- Kolom acuan akan diisi dengan JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div id="question" style="display: none;">
-                <div id="questionNumbers"></div>
-                <div id="options"></div>
-            </div>
-        </div>
-
-        <div id="history" style="display: none;">
-            <h2>Riwayat Tes</h2>
-            <hr class="divider">
-            <div id="historyTable"></div>
-        </div>
-
-        <div id="about-us" style="display: none;">
-            <h2>Tentang Kami</h2>
-            <p>Company Profile Minimalist Modern</p>
-            <p>Contact Person: <a href="https://www.instagram.com/careninaz" target="_blank">@careninaz</a></p>
-        </div>
+    <div id="question" style="display: none;">
+        <h2>Pertanyaan</h2>
+        <div id="questionNumbers"></div>
+        <div id="options"></div>
     </div>
 
     <script src="script.js"></script>
-    <script>
-        function loadHomePage() {
-            document.getElementById("home-content").style.display = "block";
-            document.getElementById("history").style.display = "none";
-            document.getElementById("about-us").style.display = "none";
-        }
-    </script>
 </body>
 </html>
